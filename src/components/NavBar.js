@@ -2,6 +2,7 @@ function NavBar(){
     return(
         <header>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" >
+            <hi class="color">Lyzone</hi>
             <div class="container-fluid">
                 <a class="navbar-brand" href="index.html">Home</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,7 +32,7 @@ function NavBar(){
                     </div>
                     <div>
                         <div class="dropdown">
-                            <button class="btn btnColor dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <button class="btn btnColor dropdown-toggle color" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 🛒 Carrito <span id="notificacionCarrito" class="badge badge-dark">0</span>
                             </button>
                             <div id="productosCarrito" class="dropdown-menu" aria-labelledby="dropdownMenuButton">

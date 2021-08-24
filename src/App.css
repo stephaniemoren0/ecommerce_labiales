@@ -24,6 +24,14 @@
   color: white;
 }
 
+.color{
+  color: white;
+}
+
+.btnColor{
+  background-color: pink;
+}
+
 .App-link {
   color: #61dafb;
 }
