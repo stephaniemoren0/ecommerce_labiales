@@ -1,18 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
-import {NavBar, carrito} from './components/NavBar';
-import {ItemListContainer, cosmetico} from './components/ItemListContainer';
+import { NavBar} from './components/NavBar';
+import ItemListContainer from './components/ItemListContainer';
 
 function App() {
 
   return (
     <div className="App">
         <NavBar />
-        <ItemListContainer cosmeticonuevo={cosmetico} />
+        <br />
 
         <p>
           Edit <code>src/App.js</code> and save to reload.
-          <HomeApp />
+          <ItemListContainer greeting={'¡Hola Mate!,muchas gracias por la ayuda, no se si esto es demasiado sencillo o yo muy tonta jajaja 😆'}/>
         </p>
         <a
           className="App-link"
@@ -27,12 +27,6 @@ function App() {
   );
 }
 
-const HomeApp=()=>{
-  return (
-    <div>
-      <h1>hola</h1>
-    </div>
-  );
-}
+
 
 export default App;
