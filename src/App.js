@@ -1,15 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
-import NavBar from './components/NavBar';
+import {NavBar, carrito} from './components/NavBar';
+import {ItemListContainer, cosmetico} from './components/ItemListContainer';
 
 function App() {
+
   return (
     <div className="App">
-          <NavBar />
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1>si</h1>
+        <NavBar />
+        <ItemListContainer cosmeticonuevo={cosmetico} />
+
         <p>
           Edit <code>src/App.js</code> and save to reload.
+          <HomeApp />
         </p>
         <a
           className="App-link"
@@ -18,7 +21,16 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn React
+
         </a>
+    </div>
+  );
+}
+
+const HomeApp=()=>{
+  return (
+    <div>
+      <h1>hola</h1>
     </div>
   );
 }

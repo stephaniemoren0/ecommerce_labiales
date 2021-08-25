@@ -1,4 +1,4 @@
-function NavBar(){
+export function NavBar(){
     return(
         <header>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" >
@@ -31,13 +31,7 @@ function NavBar(){
                             <input id="filtrado" onkeyup="buscarProducto()" class="form-control me-2" type="search" placeholder="Estoy buscando..." aria-label="Search" /></form>
                     </div>
                     <div>
-                        <div class="dropdown">
-                            <button class="btn btnColor dropdown-toggle color" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                🛒 Carrito <span id="notificacionCarrito" class="badge badge-dark">0</span>
-                            </button>
-                            <div id="productosCarrito" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            </div>
-                        </div>
+                    <Carrito />
                     </div>
                 </div>
             </div>
@@ -46,4 +40,16 @@ function NavBar(){
     )
 }
 
-export default NavBar
+export function Carrito(){
+    return(
+        <div class="dropdown">
+            <button class="btn btnColor dropdown-toggle color" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            🛒 Carrito <span id="notificacionCarrito" class="badge badge-dark">0</span>
+            </button>
+            <div id="productosCarrito" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            </div>
+        </div>
+    )
+}
+
+
