@@ -1,3 +1,5 @@
+import { ItemCount } from "./ItemCount"
+
 export const ItemListContainer=({cosmeticonuevo})=>{
     return (
     <div>
@@ -12,6 +14,8 @@ export const ItemListContainer=({cosmeticonuevo})=>{
             <p class="card-text">{cosmeticonuevo.descripcion}</p>
             <p class="card-text">Color {cosmeticonuevo.color}</p>
             <h2 class="card-title"> Precio $ {cosmeticonuevo.precio} </h2> 
+            <ItemCount stock={cosmeticonuevo.stock}/>
+            <br />
             <a href="#"  class="btn btn-color btn-primary btn-comprar">Comprar</a>
                 </div>
             </div>
@@ -26,5 +30,6 @@ export const cosmetico ={
     descripcion:'¡Tú decides la intensidad! Labial en barra con acabado mate de textura ultra ligera',
     color:'wine',
     precio:109.90,
-    imagen:'https://cyzone.tiendabelcorp.com/cdn-cgi/image/width=1200,fit=contain,f=auto/https://belc-bigdata-mdm-images-prd.s3.amazonaws.com/images/FotoProductoFondoBlancoWebRedes/200098795_fotofondoblanco.jpg'
+    imagen:'https://cyzone.tiendabelcorp.com/cdn-cgi/image/width=1200,fit=contain,f=auto/https://belc-bigdata-mdm-images-prd.s3.amazonaws.com/images/FotoProductoFondoBlancoWebRedes/200098795_fotofondoblanco.jpg',
+    stock: 10
 }
