@@ -1,13 +1,9 @@
 import { ItemCount } from "./ItemCount"
 
-export const ItemListContainer=({cosmeticonuevo})=>{
+const ItemListContainer=({cosmeticonuevo})=>{
     return (
-    <div>
-        <br />
-        <br />
-        <br />
-        <div class="col-4">
-            <div class="card">
+        <div class="col-4 ">
+            <div class="card separacion">
     <img src={cosmeticonuevo.imagen} class="card-img-top trans imagenContenedor bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid" alt="cosmetico" />
                 <div class="card-body">
             <h5 class="card-title">{cosmeticonuevo.nombre}</h5>
@@ -20,16 +16,9 @@ export const ItemListContainer=({cosmeticonuevo})=>{
                 </div>
             </div>
         </div>
-    </div>
+        
     );
 
 }
 
-export const cosmetico ={
-    nombre:'Labial Graduable Mate Studio Look',
-    descripcion:'¡Tú decides la intensidad! Labial en barra con acabado mate de textura ultra ligera',
-    color:'wine',
-    precio:109.90,
-    imagen:'https://cyzone.tiendabelcorp.com/cdn-cgi/image/width=1200,fit=contain,f=auto/https://belc-bigdata-mdm-images-prd.s3.amazonaws.com/images/FotoProductoFondoBlancoWebRedes/200098795_fotofondoblanco.jpg',
-    stock: 10
-}
+export default ItemListContainer

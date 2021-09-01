@@ -1,14 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
-import {NavBar, carrito} from './components/NavBar';
-import {ItemListContainer, cosmetico} from './components/ItemListContainer';
+import NavBar from './components/NavBar';
+import Cosmetico from './components/Item';
 
 function App() {
 
   return (
     <div className="App">
         <NavBar />
-        <ItemListContainer cosmeticonuevo={cosmetico} />
+        <br />
+        <br />
+        <br />
+        <Cosmetico />
+        <br />
+        
         <br />
         <p>
           Edit <code>src/App.js</code> and save to reload.

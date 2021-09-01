@@ -1,4 +1,4 @@
-export function NavBar(){
+function NavBar(){
     return(
         <header>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" >
@@ -40,7 +40,7 @@ export function NavBar(){
     )
 }
 
-export function Carrito(){
+function Carrito(){
     return(
         <div class="dropdown">
             <button class="btn btnColor dropdown-toggle color" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -52,4 +52,5 @@ export function Carrito(){
     )
 }
 
+export default NavBar
 
