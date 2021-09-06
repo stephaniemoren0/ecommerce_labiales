@@ -1,28 +1,23 @@
-import cosmeticos from './ItemList';
-import ItemListContainer from './ItemListContainer';
-import { useState, useEffect} from 'react';
+import { ItemCount } from "./ItemCount"
 
-
-let tarea = new Promise((resolve) => {
-    setTimeout(()=>{
-    resolve (cosmeticos);}, 2000) ;
-})
-
-const Cosmetico =() =>{
-    const [estadoCosmetico , setEstadoCosmetico] = useState([])
-    useEffect(() => {
-    tarea
-    .then((respuesta)=>{
-        setEstadoCosmetico(respuesta);})
-    }, [])
-    return(
-        <div class="contenedor">
-        <div class="container-fluid row justify-content-md-center">
-            {estadoCosmetico.map(cosmetico => <ItemListContainer cosmeticonuevo={cosmetico} />)}
+const Item=({cosmeticonuevo})=>{
+    return (
+        <div class="col-4 ">
+            <div class="card separacion">
+    <img src={cosmeticonuevo.imagen} class="card-img-top trans imagenContenedor bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid" alt="cosmetico" />
+                <div class="card-body">
+            <h5 class="card-title">{cosmeticonuevo.nombre}</h5>
+            <p class="card-text">{cosmeticonuevo.descripcion}</p>
+            <p class="card-text">Color {cosmeticonuevo.color}</p>
+            <h2 class="card-title"> Precio $ {cosmeticonuevo.precio} </h2> 
+            <br />
+            <a href="#"  class="btn btn-color btn-primary btn-comprar">Ver Detalle</a>
+                </div>
+            </div>
         </div>
-        </div>
-    )
+        
+    );
+
 }
 
-
-export default Cosmetico
+export default Item
