@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { ItemCount } from "./ItemCount"
 
 const Item=({cosmeticonuevo})=>{
@@ -11,7 +12,7 @@ const Item=({cosmeticonuevo})=>{
             <p class="card-text">Color {cosmeticonuevo.color}</p>
             <h2 class="card-title"> Precio $ {cosmeticonuevo.precio} </h2> 
             <br />
-            <a href="#"  class="btn btn-color btn-primary btn-comprar">Ver Detalle</a>
+            <Link class="btn btn-color btn-primary btn-comprar" to={`/item/${cosmeticonuevo.id}`}> Ver Detalle</Link>
                 </div>
             </div>
         </div>

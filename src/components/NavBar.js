@@ -1,29 +1,44 @@
+import { Link, NavLink } from "react-router-dom";
+
 function NavBar(){
     return(
         <header>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" >
-            <hi class="color">Lyzone</hi>
+            <h1 class="color">Lyzone</h1>
             <div class="container-fluid">
-                <a class="navbar-brand" href="index.html">Home</a>
+            
+            <Link class="nav-link active"  to="/">
+                <NavLink to="/">Home</NavLink>
+            </Link>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav me-auto mb-2 mb-md-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="html/labiales.html">Labiales</a>
+                            <Link class="nav-link active"  to="/categoria/labial">
+                                labial
+                            </Link>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="html/paletas.html">Paletas</a>
+                        <Link class="nav-link active"  to="/categoria/paleta">
+                                paleta
+                            </Link>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="html/bases.html">Bases</a>
+                        <Link class="nav-link active"  to="/categoria/base">
+                                bases
+                            </Link>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="html/delineadores.html">Delineadores</a>
+                        <Link class="nav-link active"  to="/categoria/delineador">
+                                delineadores
+                            </Link>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="html/otros.html">Otros</a>
+                        <Link class="nav-link active"  to="/categoria/otros">
+                                otros
+                            </Link>
                         </li>
                     </ul>
                     <div class="col-4">
