@@ -1,9 +1,16 @@
 import cosmeticos from "./Cosmeticos";
 import { ItemCount } from "./ItemCount"
+import { useState } from "react";
+import { Link } from "react-router-dom";
+
 
 
 
 const ItemDetail=({cosmeticonuevo})=>{
+    const [count, setCount] = useState(0)
+    function onAdd(cantidadCompra){
+        setCount(cantidadCompra);
+    }
     return (
         <section class="mb-5 container card">
     <div class="row">
@@ -31,11 +38,9 @@ const ItemDetail=({cosmeticonuevo})=>{
                         </tr>
                         <tr>
                         <td class="pl-0">
-                            <div class="def-number-input number-input safari_only mb-0">
-                            <ItemCount stock={cosmeticonuevo.stock}/>
-                            <br />
-                            <a href="#"  class="btn btn-color btn-primary btn-comprar">Comprar</a>
-                            </div>
+                            {count>0 ? 
+                            <Link class="btn btn-color btn-primary btn-comprar" to='/cart'> Terminar mi Compra</Link>:
+                            <ItemCount onAdd={onAdd} stock={cosmeticonuevo.stock}/>}
                         </td>
                         </tr>
                     </tbody>

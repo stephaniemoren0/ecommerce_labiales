@@ -1,8 +1,12 @@
 import { useState } from "react";
 
-export const ItemCount=(props)=>{
+export const ItemCount=({stock, onAdd})=>{
     const [itemCount, setItemCount] = useState(1)
+    const comprar = () =>{
+        onAdd(itemCount);
+    }
     return (
+        <div class="def-number-input number-input safari_only mb-0">
     <div class="container-fluid">
     <a href="#" onClick={()=>{
         if (itemCount>1){
@@ -10,9 +14,14 @@ export const ItemCount=(props)=>{
     }}  class="btn btn-color btn-dark">-</a>
     <a class="col-sm-8">{itemCount}</a>
     <a href="#" onClick={()=>{ 
-        if (itemCount<props.stock){
+        if (itemCount<stock){
         setItemCount(itemCount+1)}
     }} class="btn  btn-color btn-dark">+</a>
+    <br />
+
+    <br />
+    <a href="#" onClick={comprar} class="btn btn-color btn-primary btn-comprar">Comprar</a>
     </div>
+</div>
     );
 }
