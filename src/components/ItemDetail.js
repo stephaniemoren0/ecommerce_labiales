@@ -2,13 +2,16 @@ import cosmeticos from "./Cosmeticos";
 import { ItemCount } from "./ItemCount"
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { UseCartContext } from "./CartContext";
 
 
 
 
 const ItemDetail=({cosmeticonuevo})=>{
     const [count, setCount] = useState(0)
+    const {agregarAlCarrito} = UseCartContext()
     function onAdd(cantidadCompra){
+        agregarAlCarrito(cosmeticonuevo, cantidadCompra);
         setCount(cantidadCompra);
     }
     return (

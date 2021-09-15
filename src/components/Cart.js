@@ -1,6 +1,14 @@
+import { UseCartContext } from "./CartContext";
+
 const cart =()=>{
-    return(
-        <h1>Hola Soy Carrito</h1>
+    const {borrarListado,cosmeticos}= UseCartContext()
+    return(<>
+    <br />
+        <a class="btn btn-color btn-primary btn-comprar" onClick={borrarListado}>Borrar Carrito</a>
+        <div class="container-fluid row justify-content-md-center">
+            {cosmeticos.map(cosmetico => <><p>Nombre: {cosmetico.item.nombre} Cantidad: {cosmetico.quantity}  </p>  </>)}
+        </div>
+        </>
     );
 }
 

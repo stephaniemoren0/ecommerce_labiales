@@ -1,10 +1,13 @@
 {
 	"folders": [
 		{
-			"path": "../../../../2/clase 6/ecommerce - cosmeticos"
+			"path": "../../../../otro/proyecto producciones karamba"
 		},
 		{
 			"path": "../.."
+		},
+		{
+			"path": "../../../../2/clase 6/ecommerce - cosmeticos"
 		}
 	],
 	"settings": {}
