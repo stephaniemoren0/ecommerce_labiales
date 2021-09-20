@@ -21,7 +21,7 @@ function CartContextProvider ({children}){
         if(isInCart){
             var cosmeticoEncontrado = cosmeticos.find(cosmetico=>cosmetico.item.id==cosmeticoNuevo.id)
             cosmeticoEncontrado.quantity = cosmeticoEncontrado.quantity + cantidad;
-            setCosmeticos(cosmeticos)
+            setCosmeticos([...cosmeticos])
         }
         else{
             setCosmeticos([...cosmeticos, {item: cosmeticoNuevo, quantity:cantidad}])
@@ -30,13 +30,19 @@ function CartContextProvider ({children}){
     const borrarListado=()=>{
         setCosmeticos([])
     }
+    const borrarItem=(id)=>{
+        const borrarCosmetico = cosmeticos.filter((cosmetico) => cosmetico.item.id !== id);        
+        setCosmeticos([...borrarCosmetico]);
+    }
+
     console.log(cosmeticos)
 
     return(
         <CartContext.Provider value={{
             cosmeticos,
             agregarAlCarrito,
-            borrarListado
+            borrarListado,
+            borrarItem
         }}>
             {children}
         </CartContext.Provider>

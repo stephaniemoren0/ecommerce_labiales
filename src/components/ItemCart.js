@@ -1,19 +1,26 @@
-const ItemCart=({cosmeticonuevo})=>{
+import { UseCartContext } from "./CartContext";
+
+
+const ItemCart=({cosmeticonuevo, cantidad})=>{
+    const { borrarItem}= UseCartContext()
+    function onDelete(){
+        borrarItem(cosmeticonuevo.id)
+    }
     return (
         <div class="row">
-            <div class="col-lg">
-                <div class="mb-3 contenedorArticulos ">
+            <div class="col-lg ">
+                <div class="mb-3  ">
                     <div class="pt-2">
                         <div class="row mb-4">
-                            <div class="col-md-5 col-lg-3 col-xl-3">
+                            <div class="d-flex col-md-5 col-lg-3 col-xl-3">
                                 <div class="   z-depth-1 rounded mb-3 mb-md-0">
                                     <img class="img-fluid w-100 estiloImagen" src={cosmeticonuevo.imagen} alt="Sample" />
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-9">
-                        <div>
+                    <div class="pt-2">
+                        <div class="col row mb-4">
                             <div class="d-flex justify-content-between col-lg elDetalle">
                                 <div class="col-lg-7">
                                     <h5>{cosmeticonuevo.nombre}</h5>
@@ -21,9 +28,10 @@ const ItemCart=({cosmeticonuevo})=>{
                                 </div>
                                 <div class="col-lg-5">
                                     <div class="def-number-input number-input safari_only mb-0 w-100 row">
-                                        <button id="${cosmetico.id}"  class="bordeBoton btn-agregar">+</button>
-                                        <p class="textoDentro mb-0" ></p>
-                                        <button id="${cosmetico.id}" class="btn-quitar bordeBoton">-</button>
+                                        <button  class="bordeBoton btn-agregar">+</button>
+                                        <p class="textoDentro mb-0" >{cantidad}</p>
+                                        <button  class="btn-quitar bordeBoton">-</button>
+                                        <button  class="bordeBoton btn-eliminar  btn-danger" onClick={onDelete} >x</button>
                                     </div>                 
                                 </div>
                             </div>

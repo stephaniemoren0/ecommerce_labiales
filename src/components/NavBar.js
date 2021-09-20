@@ -1,4 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
+import CartWidget from "./CartWidget";
+
 
 function NavBar(){
     return(
@@ -43,7 +45,7 @@ function NavBar(){
                     </ul>
                     
                     <div class="col">
-                    <Carrito />
+                    <CartWidget />
                     </div>
                 </div>
             </div>
@@ -52,17 +54,7 @@ function NavBar(){
     )
 }
 
-function Carrito(){
-    return(
-        <div>
-            <Link class="btn btnColor btn-color color" type="button" to='/cart'>
-            🛒 Carrito <span id="notificacionCarrito" class="badge badge-dark">0</span>
-            </Link>
-            <div id="productosCarrito">
-            </div>
-        </div>
-    )
-}
+
 
 export default NavBar
 
