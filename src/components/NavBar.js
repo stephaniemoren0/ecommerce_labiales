@@ -41,11 +41,8 @@ function NavBar(){
                             </Link>
                         </li>
                     </ul>
-                    <div class="col-4">
-                        <form class="d-flex" id="miBusqueda">
-                            <input id="filtrado" onkeyup="buscarProducto()" class="form-control me-2" type="search" placeholder="Estoy buscando..." aria-label="Search" /></form>
-                    </div>
-                    <div>
+                    
+                    <div class="col">
                     <Carrito />
                     </div>
                 </div>
@@ -57,11 +54,11 @@ function NavBar(){
 
 function Carrito(){
     return(
-        <div class="dropdown">
-            <button class="btn btnColor dropdown-toggle color" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <div>
+            <Link class="btn btnColor btn-color color" type="button" to='/cart'>
             🛒 Carrito <span id="notificacionCarrito" class="badge badge-dark">0</span>
-            </button>
-            <div id="productosCarrito" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            </Link>
+            <div id="productosCarrito">
             </div>
         </div>
     )
