@@ -1,4 +1,3 @@
-import cosmeticos from "./Cosmeticos";
 import { ItemCount } from "./ItemCount"
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -17,12 +16,12 @@ const ItemDetail=({cosmeticonuevo})=>{
     return (
         <section class="mb-5 container card">
     <div class="row">
-        <div class="col-md-6 mb-4 mb-md-0"><img src={cosmeticonuevo.imagen} alt="cosmetico" class="container" />
+        <div class="col-md-6 mb-4 mb-md-0"><img src={cosmeticonuevo.imagenId} alt="cosmetico" class="container" />
         </div>
             <div class="col-md-6">
-            <h5>{cosmeticonuevo.nombre}</h5>
-            <p><span class="mr-1"><strong>${cosmeticonuevo.precio}</strong></span></p>
-            <p class="pt-1">{cosmeticonuevo.descripcion}</p>
+            <h5>{cosmeticonuevo.title}</h5>
+            <p><span class="mr-1"><strong>${cosmeticonuevo.price}</strong></span></p>
+            <p class="pt-1">{cosmeticonuevo.description}</p>
                 <div class="table-responsive">
                     <table class="table table-sm table-borderless mb-0">
                     <tbody>

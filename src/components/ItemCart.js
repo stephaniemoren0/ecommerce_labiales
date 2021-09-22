@@ -14,7 +14,7 @@ const ItemCart=({cosmeticonuevo, cantidad})=>{
                         <div class="row mb-4">
                             <div class="d-flex col-md-5 col-lg-3 col-xl-3">
                                 <div class="   z-depth-1 rounded mb-3 mb-md-0">
-                                    <img class="img-fluid w-100 estiloImagen" src={cosmeticonuevo.imagen} alt="Sample" />
+                                    <img class="img-fluid w-100 estiloImagen" src={cosmeticonuevo.imagenId} alt="Sample" />
                                 </div>
                             </div>
                         </div>
@@ -23,7 +23,7 @@ const ItemCart=({cosmeticonuevo, cantidad})=>{
                         <div class="col row mb-4">
                             <div class="d-flex justify-content-between col-lg elDetalle">
                                 <div class="col-lg-7">
-                                    <h5>{cosmeticonuevo.nombre}</h5>
+                                    <h5>{cosmeticonuevo.title}</h5>
                                     <p class="mb-2 text-muted text-uppercase small">Color: {cosmeticonuevo.color}</p>
                                 </div>
                                 <div class="col-lg-5">
@@ -40,7 +40,7 @@ const ItemCart=({cosmeticonuevo, cantidad})=>{
                                     <a href="#!" type="button" class="card-link-secondary small text-uppercase mr-3"><i class="fas fa-trash-alt mr-1"></i></a>
                                     <a href="#!" type="button" class="card-link-secondary small text-uppercase"><i class="fas fa-heart mr-1"></i></a>
                                 </div>
-                                <p class="mb-0"><span><strong>$ {cosmeticonuevo.precio}</strong></span></p>
+                                <p class="mb-0"><span><strong>$ {cosmeticonuevo.price}</strong></span></p>
                             </div>
                         </div>
                     </div>

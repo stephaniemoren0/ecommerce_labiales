@@ -1,5 +1,6 @@
 import cosmeticos from './Cosmeticos';
 import ItemList from './ItemList';
+import {getFirestore} from '../service/getFirebase'
 import { useParams } from 'react-router-dom';
 import { useState, useEffect} from 'react';
 
@@ -13,16 +14,29 @@ const ItemListContainer =() =>{
     const [estadoCosmetico , setEstadoCosmetico] = useState([])
     const {category}= useParams()
     useEffect(() => {
-        if(category===undefined)
-    {tarea
-    .then((respuesta)=>{
-        setEstadoCosmetico(respuesta);})}
-    else{
-        tarea
-        .then((respuesta)=> 
-        setEstadoCosmetico(respuesta.filter( cosmetico => category===cosmetico.categoria)) ) 
+        if(category===undefined){
+            const db= getFirestore()
+        const queryDB = db.collection('items').get()
+        .then(data => {
+            if (data.size===0){
+                console.log('no hay nada')
+            }
+            setEstadoCosmetico (data.docs.map(cosmetico => ({id:cosmetico.id, ...cosmetico.data()})))
+        })
+        }
+        else{
+            const db= getFirestore()
+        const queryDB = db.collection('items').where('categoryId', '==', category ).get()
+        .then(data => {
+            if (data.size===0){
+                console.log('no hay nada')
+            }
+            setEstadoCosmetico (data.docs.map(cosmetico => ({id:cosmetico.id, ...cosmetico.data()})))
+        })
+        }
+        
     }
-    }, [category])
+        , [category])
     
 
     return(

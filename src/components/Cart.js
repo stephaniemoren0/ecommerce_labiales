@@ -8,14 +8,14 @@ const cart =()=>{
     function totalArticulos(){
         var totalCompra = 0
         for (const cosmetico of cosmeticos) {
-            totalCompra = totalCompra + (cosmetico.quantity*cosmetico.item.precio);
+            totalCompra = totalCompra + (cosmetico.quantity*cosmetico.item.price);
         }
         return totalCompra;
     }
     function totalIva(){
         var totalCompra = 0
         for (const cosmetico of cosmeticos) {
-            totalCompra = totalCompra + (cosmetico.quantity * cosmetico.item.precio);
+            totalCompra = totalCompra + (cosmetico.quantity * cosmetico.item.price);
         }
         var iva = totalCompra * 0.16;
         var totalConiva = iva + totalCompra;
