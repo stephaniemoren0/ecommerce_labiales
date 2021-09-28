@@ -1,10 +1,42 @@
+import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { getFirestore } from "../service/getFirebase";
 import { UseCartContext } from "./CartContext";
 import ItemCart from "./ItemCart";
+import firebase from "firebase/app";
+import "firebase/firestore";
 
-const cart =()=>{
+const Cart =()=>{
     const {borrarListado,cosmeticos}= UseCartContext()
-    console.log(cosmeticos)
+    const [formData, setFormData] = useState(initalState)
+    function handleChange(e){
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        })
+    }
+
+    function handleSubmit(e){
+        e.preventDefault()
+        const newOrder={
+            buyer: formData,
+            items: cosmeticos,
+            date: firebase.firestore.Timestamp.fromDate(new Date()),
+            total: totalIva()
+        }
+        console.log(newOrder)
+        const db = getFirestore()
+        const orders = db.collection('orders')
+
+        orders.add(newOrder)
+        .then(respuesta => alert(`la orden de compra es ${respuesta.id}`))
+        .catch(error => console.log(error))
+        .finally(() => {
+            setFormData (initalState)
+            borrarListado()
+        })
+    }
+    console.log(formData)
     function totalArticulos(){
         var totalCompra = 0
         for (const cosmetico of cosmeticos) {
@@ -54,21 +86,15 @@ const cart =()=>{
                             <span id="totalIva"></span>
                         </li>
                     </ul>
-                    <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#myModal">
+
+                    <form onChange={handleChange}>
+                        <input type="text" placeholder="nombre" name="nombre" value={formData.nombre} />
+                        <input type="text" placeholder="tel" name="tel" value={formData.tel} />
+                        <input type="email" placeholder="email" name="email" value={formData.email} />
+                        </form>
+                    <button type="button" class="btn btn-primary btn-block" data-toggle="modal" onClick={handleSubmit} data-target="#myModal">
                     Confirmar Pedido
                     </button>
-                            <div class="modal fade" id="myModal">
-                                <div class="modal-dialog modal-dialog-centered">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <a href="../index.html" type="button" id="limpiar" class="color" >&times;</a>
-                                        </div>
-                                        <div class="modal-body textoNotificacion">
-                                        ¡Tu Compra Fue Exitosa!
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                 </div>
             </div>
         </div>
@@ -86,4 +112,10 @@ const cart =()=>{
 
 
 
-export default cart
+export default Cart
+
+const initalState ={
+    nombre: '',
+    email:'',
+    tel:''
+}
