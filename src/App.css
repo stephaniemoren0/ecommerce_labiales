@@ -24,6 +24,13 @@
   color: white;
 }
 
+.carform{
+  border: 1px solid #ADB8C4;
+  margin-top: 5px;
+  margin-bottom: 5px;
+border-radius: 3px;
+}
+
 .color{
   color: white;
 }
@@ -59,9 +66,12 @@
   }
 
 .contenedorArticulos{
-  display: inline-block;
-  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
 }
+
+
+
 
 .elDetalle{
   -webkit-column-count: 2;
@@ -103,6 +113,21 @@ border-radius: 5px;
   -moz-column-rule: 1px solid rgba(0, 0, 0, 0.062);
   column-rule: 1px solid rgba(0, 0, 0, 0.151);
   }
+
+  .trans:hover {
+    opacity: 1;
+    transition: 1s;
+}
+
+.imagenContenedor {
+  width: 100%;
+  height: 100%;
+}
+
+  .contenedorArticulos{
+    display: block;
+    margin-bottom: 20px;
+}
 
 @keyframes App-logo-spin {
   from {

@@ -56,7 +56,6 @@ const Cart =()=>{
 
     return( cosmeticos.length===0 ?<div> <br /> <h1>No tienes articulos en tu carrito</h1> <Link class="btn btnColor  btn-color color " type="button" to='/'>Seguir Comprando</Link> </div>:
     <>
-            <a class="btn btn-color btn-primary btn-comprar" onClick={borrarListado}>Borrar Carrito</a>
     <div id="carritoDetalle" class="contenedorCade container-fluid">
     <br />
         <div class="container-fluid row justify-content-md-center">
@@ -88,9 +87,9 @@ const Cart =()=>{
                     </ul>
 
                     <form onChange={handleChange}>
-                        <input type="text" placeholder="nombre" name="nombre" value={formData.nombre} />
-                        <input type="text" placeholder="tel" name="tel" value={formData.tel} />
-                        <input type="email" placeholder="email" name="email" value={formData.email} />
+                        <input type="text" placeholder="nombre" name="nombre" class="carform" value={formData.nombre} />
+                        <input type="text" placeholder="tel" name="tel"  class="carform" value={formData.tel} />
+                        <input type="email" placeholder="email" name="email"  class="carform" value={formData.email} />
                         </form>
                     <button type="button" class="btn btn-primary btn-block" data-toggle="modal" onClick={handleSubmit} data-target="#myModal">
                     Confirmar Pedido

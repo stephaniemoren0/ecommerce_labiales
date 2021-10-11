@@ -14,9 +14,10 @@ const ItemDetail=({cosmeticonuevo})=>{
         setCount(cantidadCompra);
     }
     return (
-        <section class="mb-5 container card">
+        <section class="mb-5 container ">
+            <br />
     <div class="row">
-        <div class="col-md-6 mb-4 mb-md-0"><img src={cosmeticonuevo.imagenId} alt="cosmetico" class="container" />
+        <div class="col-md-6 mb-4 mb-md-0"><img src={cosmeticonuevo.imagenId} alt="cosmetico" class="container trans imagenContenedor estiloImagen" />
         </div>
             <div class="col-md-6">
             <h5>{cosmeticonuevo.title}</h5>
@@ -41,7 +42,7 @@ const ItemDetail=({cosmeticonuevo})=>{
                         <tr>
                         <td class="pl-0">
                             {count>0 ? 
-                            <Link class="btn btn-color btn-primary btn-comprar" to='/cart'> Terminar mi Compra</Link>:
+                            <Link class="btn btnColor btn-color color btn-comprar" to='/cart'> Terminar mi Compra</Link>:
                             <ItemCount onAdd={onAdd} stock={cosmeticonuevo.stock}/>}
                         </td>
                         </tr>

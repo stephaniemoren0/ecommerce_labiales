@@ -9,11 +9,11 @@ const ItemCart=({cosmeticonuevo, cantidad})=>{
     return (
         <div class="row">
             <div class="col-lg ">
-                <div class="mb-3  ">
+                <div class="mb-3 row contenedorArticulos">
                     <div class="pt-2">
-                        <div class="row mb-4">
+                        <div class="col row mb-4">
                             <div class="d-flex col-md-5 col-lg-3 col-xl-3">
-                                <div class="   z-depth-1 rounded mb-3 mb-md-0">
+                                <div class="   z-depth-1 rounded mb-3 mb-md-0 ">
                                     <img class="img-fluid w-100 estiloImagen" src={cosmeticonuevo.imagenId} alt="Sample" />
                                 </div>
                             </div>
@@ -22,7 +22,7 @@ const ItemCart=({cosmeticonuevo, cantidad})=>{
                     <div class="pt-2">
                         <div class="col row mb-4">
                             <div class="d-flex justify-content-between col-lg elDetalle">
-                                <div class="col-lg-7">
+                                <div class="col-lg">
                                     <h5>{cosmeticonuevo.title}</h5>
                                     <p class="mb-2 text-muted text-uppercase small">Color: {cosmeticonuevo.color}</p>
                                 </div>

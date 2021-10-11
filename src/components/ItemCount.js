@@ -20,7 +20,7 @@ export const ItemCount=({stock, onAdd})=>{
     <br />
 
     <br />
-    <a href="#" onClick={comprar} class="btn btn-color btn-primary btn-comprar">Comprar</a>
+    <a href="#" onClick={comprar} class="btn btnColor btn-color color btn-comprar">Comprar</a>
     </div>
 </div>
     );
