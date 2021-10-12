@@ -18,9 +18,7 @@ const ItemListContainer =() =>{
             const db= getFirestore()
         const queryDB = db.collection('items').get()
         .then(data => {
-            if (data.size===0){
-                console.log('no hay nada')
-            }
+            
             setEstadoCosmetico (data.docs.map(cosmetico => ({id:cosmetico.id, ...cosmetico.data()})))
         })
         }
@@ -28,9 +26,7 @@ const ItemListContainer =() =>{
             const db= getFirestore()
         const queryDB = db.collection('items').where('categoryId', '==', category ).get()
         .then(data => {
-            if (data.size===0){
-                console.log('no hay nada')
-            }
+            
             setEstadoCosmetico (data.docs.map(cosmetico => ({id:cosmetico.id, ...cosmetico.data()})))
         })
         }

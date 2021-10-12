@@ -15,9 +15,7 @@ const ItemDetailContainer =() =>{
         const db= getFirestore()
         const queryDB = db.collection('items').get()
         .then(data => {
-            if (data.size===0){
-                console.log('no hay nada')
-            }
+            
             var cosmeticos = data.docs.map(cosmetico => ({id:cosmetico.id, ...cosmetico.data()}))
             setEstadoCosmetico(cosmeticos.find( cosmetico => id===cosmetico.id)) 
             setloading(false)

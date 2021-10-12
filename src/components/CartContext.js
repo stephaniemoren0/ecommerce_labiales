@@ -35,7 +35,6 @@ function CartContextProvider ({children}){
         setCosmeticos([...borrarCosmetico]);
     }
 
-    console.log(cosmeticos)
 
     return(
         <CartContext.Provider value={{

@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { getFirestore } from "../service/getFirebase";
 import { UseCartContext } from "./CartContext";
 import ItemCart from "./ItemCart";
@@ -16,6 +16,8 @@ const Cart =()=>{
         })
     }
 
+    
+
     function handleSubmit(e){
         e.preventDefault()
         const newOrder={
@@ -24,7 +26,6 @@ const Cart =()=>{
             date: firebase.firestore.Timestamp.fromDate(new Date()),
             total: totalIva()
         }
-        console.log(newOrder)
         const db = getFirestore()
         const orders = db.collection('orders')
 
@@ -36,7 +37,6 @@ const Cart =()=>{
             borrarListado()
         })
     }
-    console.log(formData)
     function totalArticulos(){
         var totalCompra = 0
         for (const cosmetico of cosmeticos) {
@@ -52,6 +52,11 @@ const Cart =()=>{
         var iva = totalCompra * 0.16;
         var totalConiva = iva + totalCompra;
         return Math.round(totalConiva);
+    }
+
+
+    function validarEmail(email) {
+        return /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/.test(email)
     }
 
     return( cosmeticos.length===0 ?<div> <br /> <h1>No tienes articulos en tu carrito</h1> <Link class="btn btnColor  btn-color color " type="button" to='/'>Seguir Comprando</Link> </div>:
@@ -90,10 +95,17 @@ const Cart =()=>{
                         <input type="text" placeholder="nombre" name="nombre" class="carform" value={formData.nombre} />
                         <input type="text" placeholder="tel" name="tel"  class="carform" value={formData.tel} />
                         <input type="email" placeholder="email" name="email"  class="carform" value={formData.email} />
+                        <input type="email" placeholder="confirma tu email" name="confirmemail"  class="carform" value={formData.confirmemail} />
                         </form>
+                    {formData.nombre.length !==0 &&
+                    formData.email.length !==0 && 
+                    formData.tel.length !==0 && 
+                    formData.confirmemail.length !==0 && 
+                    formData.email === formData.confirmemail && 
+                    formData.tel.length === 10 && validarEmail(formData.email) &&
                     <button type="button" class="btn btn-primary btn-block" data-toggle="modal" onClick={handleSubmit} data-target="#myModal">
                     Confirmar Pedido
-                    </button>
+                    </button>}
                 </div>
             </div>
         </div>
@@ -110,11 +122,11 @@ const Cart =()=>{
 }
 
 
-
 export default Cart
 
 const initalState ={
     nombre: '',
     email:'',
-    tel:''
+    tel:'',
+    confirmemail:''
 }
