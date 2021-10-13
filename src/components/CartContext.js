@@ -27,12 +27,6 @@ function CartContextProvider ({children}){
             setCosmeticos([...cosmeticos, {item: cosmeticoNuevo, quantity:cantidad}])
         }
     }
-    function actualizaCarrito(cosmeticoNuevo, cantidad) {
-        var cosmeticoEncontrado = cosmeticos.find(cosmetico=>cosmetico.item.id==cosmeticoNuevo.id)
-        cosmeticoEncontrado.quantity = cantidad;
-        setCosmeticos([...cosmeticos])
-        
-    }
     const borrarListado=()=>{
         setCosmeticos([])
     }
@@ -47,7 +41,6 @@ function CartContextProvider ({children}){
             cosmeticos,
             agregarAlCarrito,
             borrarListado,
-            actualizaCarrito,
             borrarItem
         }}>
             {children}
