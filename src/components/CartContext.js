@@ -16,7 +16,7 @@ function CartContextProvider ({children}){
             return true;
         }
     }
-    function agregarAlCarrito(cosmeticoNuevo, cantidad){
+    function agregarAlCarrito(cosmeticoNuevo, cantidad) {
         const isInCart = IsInCart(cosmeticoNuevo.id);
         if(isInCart){
             var cosmeticoEncontrado = cosmeticos.find(cosmetico=>cosmetico.item.id==cosmeticoNuevo.id)
@@ -26,6 +26,12 @@ function CartContextProvider ({children}){
         else{
             setCosmeticos([...cosmeticos, {item: cosmeticoNuevo, quantity:cantidad}])
         }
+    }
+    function actualizaCarrito(cosmeticoNuevo, cantidad) {
+        var cosmeticoEncontrado = cosmeticos.find(cosmetico=>cosmetico.item.id==cosmeticoNuevo.id)
+        cosmeticoEncontrado.quantity = cantidad;
+        setCosmeticos([...cosmeticos])
+        
     }
     const borrarListado=()=>{
         setCosmeticos([])
@@ -41,6 +47,7 @@ function CartContextProvider ({children}){
             cosmeticos,
             agregarAlCarrito,
             borrarListado,
+            actualizaCarrito,
             borrarItem
         }}>
             {children}
